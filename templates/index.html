@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='image/favicon.ico') }}">
+    <script src="https://kit.fontawesome.com/24a37e864a.js" crossorigin="anonymous"></script>
+    <title>전시지도</title>
+</head>
+<body>
+    <header>
+        <h1>전<span class="tiny">통</span>시<span class="tiny">장</span>지도</h1>
+    </header>
+    <article>
+        <div id="map"></div>
+    </article>
+    <footer>
+        <div class="introduce">
+            <p>이메일 : arcomade12@gmail.com</p>
+            <p>ⓒ김정태. All rights reserved.</p>
+        </div>
+        <div class="sns">
+            <a href="https://github.com/ArcoKim" target="_blank"><i class="fa-brands fa-github"></i></a>
+            <a href="https://arcozz.tistory.com" target="_blank"><i class="fa-brands fa-blogger"></i></a>
+        </div>
+    </footer>
+    <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey={{ api_key }}"></script>
+    <script src="{{ url_for('static', filename='javascript/script.js') }}"></script>
+</body>
+</html>
