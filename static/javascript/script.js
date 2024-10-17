@@ -6,6 +6,33 @@ const mapOption = {
 
 const map = new kakao.maps.Map(mapContainer, mapOption);
 
+async function getPosition() {
+    try {
+        const response = await fetch('/position');
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+
+        const ret = await response.json();
+        return ret;
+    } catch (error) {
+        console.error('There has been a problem with your fetch operation:', error);
+    }
+}
+
+getPosition().then(positions => {
+    positions.map(position => {
+        return new Promise(resolve => {
+            new kakao.maps.Marker({
+                map: map,
+                position: new kakao.maps.LatLng(position['latitude'], position['longitude']),
+                title: position['name']
+            });
+            resolve();
+        });
+    });
+});
+
 if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition((position) => {        
         const lat = position.coords.latitude;
