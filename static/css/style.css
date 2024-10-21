@@ -41,7 +41,7 @@ article {
 
 #map {
     flex: 3;
-    height: 103vh;
+    min-height: 93vh;
 }
 
 #info {
@@ -67,6 +67,14 @@ article {
 
 table {
     width: 100%;
+}
+
+#basic > table tr > td:first-child {
+    width: 33%;
+}
+
+#basic > table tr > td:nth-child(2) {
+    text-align: right;
 }
 
 footer {

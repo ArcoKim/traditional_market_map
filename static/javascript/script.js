@@ -35,9 +35,9 @@ async function initializeMarkers() {
                 document.getElementById('market_name').textContent = position['name'];
                 for(let [key, value] of Object.entries(market)) {
                     if(value === 1) {
-                        value = '보유함'
+                        value = 'O'
                     } else if(value === 0) {
-                        value = '보유하지 않음'
+                        value = 'X'
                     } else if(!value) {
                         value = '정보 없음'
                     }
@@ -60,9 +60,14 @@ if (navigator.geolocation) {
         map.setCenter(locPosition);
         map.setLevel(9);
 
+        const imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+        const imageSize = new kakao.maps.Size(24, 35);
+        const markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+
         const marker = new kakao.maps.Marker({  
             map: map, 
-            position: locPosition
+            position: locPosition,
+            image: markerImage
         }); 
         const infowindow = new kakao.maps.InfoWindow({
             content : "현재 위치",
