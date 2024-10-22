@@ -10,16 +10,149 @@
 </head>
 <body>
     <header>
+        <i class="fa-solid fa-magnifying-glass" id="search"></i>
         <h1>전<span class="tiny">통</span>시<span class="tiny">장</span>지도</h1>
+        <div id="empty"></div>
     </header>
     <article>
+        <div id="search_div">
+            <div class="title">
+                <i class="fa-solid fa-x close" id="search_close"></i>
+                <h2>시장 검색</h2>
+            </div>
+            <div class="basic space">
+                <h3>기본 정보</h3>
+                <table>
+                    <tr>
+                        <td>시장유형</td>
+                        <td id="category_opt">TEST</td>
+                    </tr>
+                    <tr>
+                        <td>개설주기</td>
+                        <td id="open_cycle_opt">TEST</td>
+                    </tr>
+                    <tr>
+                        <td>점포 수</td>
+                        <td id="number_of_stores_opt">TEST</td>
+                    </tr>
+                    <tr>
+                        <td>취급품목</td>
+                        <td id="items_type_opt">TEST</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="facility space">
+                <h3>편의 / 안전 시설 보유 여부</h3>
+                <table>
+                    <tr>
+                        <td>공중화장실</td>
+                        <td id="restroom_opt">TEST</td>
+                    </tr>
+                    <tr>
+                        <td>아케이드</td>
+                        <td id="arcade_opt">TEST</td>
+                    </tr>
+                    <tr>
+                        <td>엘리베이터 / 에스컬레이터</td>
+                        <td id="elevator_opt">TEST</td>
+                    </tr>
+                    <tr>
+                        <td>고객지원센터</td>
+                        <td id="support_center_opt">TEST</td>
+                    </tr>
+                    <tr>
+                        <td>스프링쿨러</td>
+                        <td id="sprinkler_opt">TEST</td>
+                    </tr>
+                    <tr>
+                        <td>화재감지기</td>
+                        <td id="fire_detector_opt">TEST</td>
+                    </tr>
+                    <tr>
+                        <td>유아놀이방</td>
+                        <td id="play_room_opt">TEST</td>
+                    </tr>
+                    <tr>
+                        <td>종합콜센터</td>
+                        <td id="call_center_opt">TEST</td>
+                    </tr>
+                    <tr>
+                        <td>고객휴게실</td>
+                        <td id="foyer_opt">TEST</td>
+                    </tr>
+                    <tr>
+                        <td>수유센터</td>
+                        <td id="lactation_center_opt">TEST</td>
+                    </tr>
+                    <tr>
+                        <td>물품보관함</td>
+                        <td id="stockroom_opt">TEST</td>
+                    </tr>
+                    <tr>
+                        <td>자전거보관함</td>
+                        <td id="bicycle_rack_opt">TEST</td>
+                    </tr>
+                    <tr>
+                        <td>체육시설</td>
+                        <td id="gym_opt">TEST</td>
+                    </tr>
+                    <tr>
+                        <td>간이 도서관</td>
+                        <td id="library_opt">TEST</td>
+                    </tr>
+                    <tr>
+                        <td>쇼핑카트</td>
+                        <td id="shopping_cart_opt">TEST</td>
+                    </tr>
+                    <tr>
+                        <td>외국인 안내센터</td>
+                        <td id="visitor_center_opt">TEST</td>
+                    </tr>
+                    <tr>
+                        <td>고객동선통로</td>
+                        <td id="movement_path_opt">TEST</td>
+                    </tr>
+                    <tr>
+                        <td>방송센터</td>
+                        <td id="broadcasting_center_opt">TEST</td>
+                    </tr>
+                    <tr>
+                        <td>문화교실</td>
+                        <td id="cultural_center_opt">TEST</td>
+                    </tr>
+                    <tr>
+                        <td>공동물류창고</td>
+                        <td id="cooperative_warehouse_opt">TEST</td>
+                    </tr>
+                    <tr>
+                        <td>시장전용 고객주차장</td>
+                        <td id="parking_opt">TEST</td>
+                    </tr>
+                    <tr>
+                        <td>교육장</td>
+                        <td id="education_center_opt">TEST</td>
+                    </tr>
+                    <tr>
+                        <td>회의실</td>
+                        <td id="meeting_room_opt">TEST</td>
+                    </tr>
+                    <tr>
+                        <td>자동심장충격기</td>
+                        <td id="AED_opt">TEST</td>
+                    </tr>
+                </table>
+            </div>
+            <div id="btn_div">
+                <button id="search_btn">검색하기</button>
+            </div>
+        </div>
         <div id="map"></div>
         <div id="info">
-            <div id="title">
-                <h2 id="market_name">시장</h2>
-                <i class="fa-solid fa-x" id="close"></i>
+            <div class="title">
+                <h2 id="market_name">TEST시장</h2>
+                <i class="fa-solid fa-x close" id="market_close"></i>
             </div>
-            <div id="basic">
+            <div class="basic space">
                 <h3>기본 정보</h3>
                 <table>
                     <tr>
@@ -56,7 +189,7 @@
                     </tr>
                 </table>
             </div>
-            <div id="facility">
+            <div class="facility space">
                 <h3>편의 / 안전 시설 보유 여부</h3>
                 <table>
                     <tr>

@@ -78,6 +78,14 @@ if (navigator.geolocation) {
     });
 }
 
-document.getElementById('close').addEventListener('click', () => {
+document.getElementById('market_close').addEventListener('click', () => {
     document.getElementById('info').style.display = 'none';
+});
+
+document.getElementById('search').addEventListener('click', () => {
+    document.getElementById('search_div').style.display = 'block';
+});
+
+document.getElementById('search_close').addEventListener('click', () => {
+    document.getElementById('search_div').style.display = 'none';
 });
