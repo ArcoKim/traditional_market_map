@@ -44,8 +44,21 @@ async function initializeMarkers() {
                     document.getElementById(key).textContent = value;
                 }
                 document.getElementById('info').style.display = 'block';
+                flex();
             });
         });
+    }
+}
+
+function flex() {
+    const left = document.getElementById('search_div');
+    const right = document.getElementById('info');
+    const map = document.getElementById('map')
+
+    if(left.style.display == 'block' && right.style.display == 'block') {
+        map.style.flex = 2;
+    } else {
+        map.style.flex = 3;
     }
 }
 
@@ -80,12 +93,15 @@ if (navigator.geolocation) {
 
 document.getElementById('market_close').addEventListener('click', () => {
     document.getElementById('info').style.display = 'none';
+    flex();
 });
 
 document.getElementById('search').addEventListener('click', () => {
     document.getElementById('search_div').style.display = 'block';
+    flex();
 });
 
 document.getElementById('search_close').addEventListener('click', () => {
     document.getElementById('search_div').style.display = 'none';
+    flex();
 });
