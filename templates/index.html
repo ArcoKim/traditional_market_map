@@ -25,19 +25,39 @@
                 <table>
                     <tr>
                         <td>시장유형</td>
-                        <td id="category_opt">TEST</td>
+                        <td>
+                            <input type="checkbox" name="category" id="every_day_market" value="상설장" />
+                            <label for="every_day_market">상설장</label>
+                            <input type="checkbox" name="category" id="five_day_market" value="5일장" />
+                            <label for="five_day_market">5일장</label>
+                        </td>
                     </tr>
                     <tr>
                         <td>개설주기</td>
                         <td id="open_cycle_opt">TEST</td>
                     </tr>
                     <tr>
-                        <td>점포 수</td>
-                        <td id="number_of_stores_opt">TEST</td>
-                    </tr>
-                    <tr>
                         <td>취급품목</td>
-                        <td id="items_type_opt">TEST</td>
+                        <td>
+                            <input type="checkbox" name="items_type" id="food" value="음식점" />
+                            <label for="food">음식점</label>
+                            <input type="checkbox" name="items_type" id="agricultural_products" value="농산물" />
+                            <label for="agricultural_products">농산물</label>
+                            <input type="checkbox" name="items_type" id="processed_food" value="가공식품" />
+                            <label for="processed_food">가공식품</label>
+                            <input type="checkbox" name="items_type" id="clothes" value="의류" />
+                            <label for="clothes">의류</label>
+                            <input type="checkbox" name="items_type" id="household_items" value="가정용품" />
+                            <label for="household_items">가정용품</label>
+                            <input type="checkbox" name="items_type" id="livestock_products" value="축산물" />
+                            <label for="livestock_products">축산물</label>
+                            <input type="checkbox" name="items_type" id="seafood" value="수산물" />
+                            <label for="seafood">수산물</label>
+                            <input type="checkbox" name="items_type" id="shoes" value="신발" />
+                            <label for="shoes">신발</label>
+                            <input type="checkbox" name="items_type" id="etc" value="기타" />
+                            <label for="etc">기타</label>
+                        </td>
                     </tr>
                 </table>
             </div>
@@ -46,99 +66,243 @@
                 <table>
                     <tr>
                         <td>공중화장실</td>
-                        <td id="restroom_opt">TEST</td>
+                        <td>
+                            <select name="restroom">
+                                <option value="irrelevant" selected>상관 없음</option>
+                                <option value="true">O</option>
+                                <option value="false">X</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <td>아케이드</td>
-                        <td id="arcade_opt">TEST</td>
+                        <td>
+                            <select name="arcade">
+                                <option value="irrelevant" selected>상관 없음</option>
+                                <option value="true">O</option>
+                                <option value="false">X</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <td>엘리베이터 / 에스컬레이터</td>
-                        <td id="elevator_opt">TEST</td>
+                        <td>
+                            <select name="elevator">
+                                <option value="irrelevant" selected>상관 없음</option>
+                                <option value="true">O</option>
+                                <option value="false">X</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <td>고객지원센터</td>
-                        <td id="support_center_opt">TEST</td>
+                        <td>
+                            <select name="support_center">
+                                <option value="irrelevant" selected>상관 없음</option>
+                                <option value="true">O</option>
+                                <option value="false">X</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <td>스프링쿨러</td>
-                        <td id="sprinkler_opt">TEST</td>
+                        <td>
+                            <select name="sprinkler">
+                                <option value="irrelevant" selected>상관 없음</option>
+                                <option value="true">O</option>
+                                <option value="false">X</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <td>화재감지기</td>
-                        <td id="fire_detector_opt">TEST</td>
+                        <td>
+                            <select name="fire_detector">
+                                <option value="irrelevant" selected>상관 없음</option>
+                                <option value="true">O</option>
+                                <option value="false">X</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <td>유아놀이방</td>
-                        <td id="play_room_opt">TEST</td>
+                        <td>
+                            <select name="play_room">
+                                <option value="irrelevant" selected>상관 없음</option>
+                                <option value="true">O</option>
+                                <option value="false">X</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <td>종합콜센터</td>
-                        <td id="call_center_opt">TEST</td>
+                        <td>
+                            <select name="call_center">
+                                <option value="irrelevant" selected>상관 없음</option>
+                                <option value="true">O</option>
+                                <option value="false">X</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <td>고객휴게실</td>
-                        <td id="foyer_opt">TEST</td>
+                        <td>
+                            <select name="foyer">
+                                <option value="irrelevant" selected>상관 없음</option>
+                                <option value="true">O</option>
+                                <option value="false">X</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <td>수유센터</td>
-                        <td id="lactation_center_opt">TEST</td>
+                        <td>
+                            <select name="lactation_center">
+                                <option value="irrelevant" selected>상관 없음</option>
+                                <option value="true">O</option>
+                                <option value="false">X</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <td>물품보관함</td>
-                        <td id="stockroom_opt">TEST</td>
+                        <td>
+                            <select name="stockroom">
+                                <option value="irrelevant" selected>상관 없음</option>
+                                <option value="true">O</option>
+                                <option value="false">X</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <td>자전거보관함</td>
-                        <td id="bicycle_rack_opt">TEST</td>
+                        <td>
+                            <select name="bicycle_rack">
+                                <option value="irrelevant" selected>상관 없음</option>
+                                <option value="true">O</option>
+                                <option value="false">X</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <td>체육시설</td>
-                        <td id="gym_opt">TEST</td>
+                        <td>
+                            <select name="gym">
+                                <option value="irrelevant" selected>상관 없음</option>
+                                <option value="true">O</option>
+                                <option value="false">X</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <td>간이 도서관</td>
-                        <td id="library_opt">TEST</td>
+                        <td>
+                            <select name="library">
+                                <option value="irrelevant" selected>상관 없음</option>
+                                <option value="true">O</option>
+                                <option value="false">X</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <td>쇼핑카트</td>
-                        <td id="shopping_cart_opt">TEST</td>
+                        <td>
+                            <select name="shopping_cart">
+                                <option value="irrelevant" selected>상관 없음</option>
+                                <option value="true">O</option>
+                                <option value="false">X</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <td>외국인 안내센터</td>
-                        <td id="visitor_center_opt">TEST</td>
+                        <td>
+                            <select name="visitor_center">
+                                <option value="irrelevant" selected>상관 없음</option>
+                                <option value="true">O</option>
+                                <option value="false">X</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <td>고객동선통로</td>
-                        <td id="movement_path_opt">TEST</td>
+                        <td>
+                            <select name="movement_path">
+                                <option value="irrelevant" selected>상관 없음</option>
+                                <option value="true">O</option>
+                                <option value="false">X</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <td>방송센터</td>
-                        <td id="broadcasting_center_opt">TEST</td>
+                        <td>
+                            <select name="broadcasting_center">
+                                <option value="irrelevant" selected>상관 없음</option>
+                                <option value="true">O</option>
+                                <option value="false">X</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <td>문화교실</td>
-                        <td id="cultural_center_opt">TEST</td>
+                        <td>
+                            <select name="cultural_center">
+                                <option value="irrelevant" selected>상관 없음</option>
+                                <option value="true">O</option>
+                                <option value="false">X</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <td>공동물류창고</td>
-                        <td id="cooperative_warehouse_opt">TEST</td>
+                        <td>
+                            <select name="cooperative_warehouse">
+                                <option value="irrelevant" selected>상관 없음</option>
+                                <option value="true">O</option>
+                                <option value="false">X</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <td>시장전용 고객주차장</td>
-                        <td id="parking_opt">TEST</td>
+                        <td>
+                            <select name="parking">
+                                <option value="irrelevant" selected>상관 없음</option>
+                                <option value="true">O</option>
+                                <option value="false">X</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <td>교육장</td>
-                        <td id="education_center_opt">TEST</td>
+                        <td>
+                            <select name="education_center">
+                                <option value="irrelevant" selected>상관 없음</option>
+                                <option value="true">O</option>
+                                <option value="false">X</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <td>회의실</td>
-                        <td id="meeting_room_opt">TEST</td>
+                        <td>
+                            <select name="meeting_room">
+                                <option value="irrelevant" selected>상관 없음</option>
+                                <option value="true">O</option>
+                                <option value="false">X</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <td>자동심장충격기</td>
-                        <td id="AED_opt">TEST</td>
+                        <td>
+                            <select name="AED">
+                                <option value="irrelevant" selected>상관 없음</option>
+                                <option value="true">O</option>
+                                <option value="false">X</option>
+                            </select>
+                        </td>
                     </tr>
                 </table>
             </div>
