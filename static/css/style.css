@@ -37,17 +37,33 @@ header h1 {
 }
 
 article {
-    display: flex;
+    position: relative;
 }
 
 #map {
-    flex: 3;
-    min-height: 93vh;
+    height: 93vh;
+    width: 100%;
+    z-index: 0;
 }
 
-#info, #search_div {
+#search_div, #info {
+    position: absolute;
     display: none;
-    flex: 1;
+    width: 26%;
+    height: 93vh;
+    z-index: 1;
+    background-color: white;
+    overflow: scroll;
+}
+
+#search_div {
+    top: 0;
+    left: 0;
+}
+
+#info {
+    top: 0;
+    right: 0;
 }
 
 #info div, #search_div > div, #search_div > form > div {

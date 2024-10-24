@@ -59,9 +59,33 @@ def market():
 @app.route('/search', methods=['POST'])
 def search():
     form = request.form
-    print(form)
-    print(request.form.getlist('category'))
-    return "Nice"
+    sql = "SELECT name, latitude, longitude FROM market, facility WHERE market.facility_id = facility.id"
+    param = []
+    for key in form.keys():
+        value = form.getlist(key)
+        if key in ["category", "open_cycle", "items_type"]:
+            if len(value) > 1:
+                sql += f" AND {key} IN ({','.join(['?'] * len(value))})"
+            else:
+                sql += f" AND {key} = ?"
+            param.extend(value)
+        elif value[0] == "true":
+            sql += f" AND {key} = 1"
+        elif value[0] == "false":
+            sql += f" AND {key} = 0"
+
+    conn = get_connection()
+    ret = []
+    try:
+        cur = conn.cursor()
+        cur.execute(sql, param)
+        results = cur.fetchall()
+        for row in results:
+            ret.append(dict(row))
+    finally:
+        conn.close()
+
+    return ret
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=80, debug=True)
