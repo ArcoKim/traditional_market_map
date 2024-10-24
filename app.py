@@ -15,7 +15,7 @@ def get_connection():
 def index():
     return render_template('index.html', api_key=kakao_api_key)
 
-@app.route('/position')
+@app.route('/position', methods=['GET'])
 def position():
     conn = get_connection()
     ret = []
@@ -32,7 +32,7 @@ def position():
 
     return ret
 
-@app.route('/market')
+@app.route('/market', methods=['GET'])
 def market():
     latitude = request.args.get('latitude')
     longitude = request.args.get('longitude')
@@ -55,6 +55,13 @@ def market():
         conn.close()
 
     return dict(ret)
+
+@app.route('/search', methods=['POST'])
+def search():
+    form = request.form
+    print(form)
+    print(request.form.getlist('category'))
+    return "Nice"
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=80, debug=True)

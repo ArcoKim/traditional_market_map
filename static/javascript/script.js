@@ -6,7 +6,7 @@ const mapOption = {
 
 const map = new kakao.maps.Map(mapContainer, mapOption);
 
-async function fetching(path) {
+const fetching = async (path) => {
     try {
         const response = await fetch(path);
         if (!response.ok) {
@@ -19,7 +19,7 @@ async function fetching(path) {
     }
 }
 
-async function initializeMarkers() {
+const initializeMarkers = async () => {
     const positions = await fetching('/position');
 
     if (positions) {
@@ -50,7 +50,7 @@ async function initializeMarkers() {
     }
 }
 
-function flex() {
+const flex = () => {
     const left = document.getElementById('search_div');
     const right = document.getElementById('info');
     const map = document.getElementById('map')
@@ -105,3 +105,20 @@ document.getElementById('search_close').addEventListener('click', () => {
     document.getElementById('search_div').style.display = 'none';
     flex();
 });
+
+const handleSubmit = event => {
+    event.preventDefault();
+
+    const myForm = event.target;
+    const formData = new FormData(myForm);
+
+    fetch("/search", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString()
+    })
+        .then(() => console.log("Form successfully submitted"))
+        .catch(error => alert(error));
+    };
+
+document.querySelector("form").addEventListener("submit", handleSubmit);
