@@ -94,19 +94,47 @@ document.getElementById('search_close').addEventListener('click', () => {
     document.getElementById('search_div').style.display = 'none';
 });
 
+document.getElementById('result_close').addEventListener('click', () => {
+    document.getElementById('result').style.display = 'none';
+});
+
 const handleSubmit = event => {
     event.preventDefault();
 
     const myForm = event.target;
     const formData = new FormData(myForm);
 
+    document.getElementById('no_result').style.display = "none";
+
     fetch("/search", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams(formData).toString()
     })
-        .then(() => console.log("Form successfully submitted"))
-        .catch(error => alert(error));
-    };
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('네트워크 응답이 좋지 않습니다.');
+        }
+        return response.json();
+    })
+    .then((data) => {
+        const contents = document.getElementById('contents');
+
+        data.forEach(item => {
+            const div = document.createElement('div');
+            div.className = 'pad';
+
+            const h3 = document.createElement('h3');
+            h3.textContent = item.name;
+            div.appendChild(h3);
+
+            const p = document.createElement('p');
+            p.textContent = item.address;
+            div.appendChild(p);
+
+            contents.appendChild(div);
+        })
+    })
+};
 
 document.querySelector("form").addEventListener("submit", handleSubmit);

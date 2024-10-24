@@ -59,7 +59,7 @@ def market():
 @app.route('/search', methods=['POST'])
 def search():
     form = request.form
-    sql = "SELECT name, latitude, longitude FROM market, facility WHERE market.facility_id = facility.id"
+    sql = "SELECT name, address, latitude, longitude FROM market, facility WHERE market.facility_id = facility.id"
     param = []
     for key in form.keys():
         value = form.getlist(key)
@@ -73,6 +73,7 @@ def search():
             sql += f" AND {key} = 1"
         elif value[0] == "false":
             sql += f" AND {key} = 0"
+    sql += " LIMIT 10"
 
     conn = get_connection()
     ret = []

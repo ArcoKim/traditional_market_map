@@ -46,7 +46,7 @@ article {
     z-index: 0;
 }
 
-#search_div, #info {
+#search_div, #info, #result {
     position: absolute;
     display: none;
     width: 26%;
@@ -56,17 +56,22 @@ article {
     overflow: scroll;
 }
 
+#result {
+    z-index: 2;
+    display: block;
+}
+
 #search_div {
     top: 0;
     left: 0;
 }
 
-#info {
+#info, #result {
     top: 0;
     right: 0;
 }
 
-#info div, #search_div > div, #search_div > form > div {
+.pad {
     padding: 1vh 1vw;
 }
 
@@ -119,6 +124,16 @@ table {
     font-size: 1rem;
     cursor: pointer;
     border-radius: 1rem;
+}
+
+#contents > div {
+    border: 1px solid black;
+    margin-bottom: 1vh;
+    cursor: pointer;
+}
+
+#contents > div > p {
+    color: grey;
 }
 
 footer {

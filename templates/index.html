@@ -16,12 +16,12 @@
     </header>
     <article>
         <div id="search_div">
-            <div class="title">
+            <div class="title pad">
                 <i class="fa-solid fa-x close" id="search_close"></i>
                 <h2>시장 검색</h2>
             </div>
             <form action="/search" method="post">
-                <div class="basic space">
+                <div class="basic space pad">
                     <h3>기본 정보</h3>
                     <table>
                         <tr>
@@ -90,7 +90,7 @@
                         </tr>
                     </table>
                 </div>
-                <div class="facility space">
+                <div class="facility space pad">
                     <h3>편의 / 안전 시설 보유 여부</h3>
                     <table>
                         <tr>
@@ -335,18 +335,27 @@
                         </tr>
                     </table>
                 </div>
-                <div id="btn_div">
+                <div id="btn_div" class="pad">
                     <button type="submit" id="search_btn">검색하기</button>
                 </div>
             </form>
         </div>
         <div id="map"></div>
+        <div id="result">
+            <div class="title pad">
+                <h2>검색 결과</h2>
+                <i class="fa-solid fa-x close" id="result_close"></i>
+            </div>
+            <div id="contents" class="pad">
+                <p id="no_result">검색 결과가 없습니다.</p>
+            </div>
+        </div>
         <div id="info">
-            <div class="title">
+            <div class="title pad">
                 <h2 id="market_name">TEST시장</h2>
                 <i class="fa-solid fa-x close" id="market_close"></i>
             </div>
-            <div class="basic space">
+            <div class="basic space pad">
                 <h3>기본 정보</h3>
                 <table>
                     <tr>
@@ -383,7 +392,7 @@
                     </tr>
                 </table>
             </div>
-            <div class="facility space">
+            <div class="facility space pad">
                 <h3>편의 / 안전 시설 보유 여부</h3>
                 <table>
                     <tr>
