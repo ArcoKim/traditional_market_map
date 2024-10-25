@@ -6,9 +6,9 @@ const mapOption = {
 
 const map = new kakao.maps.Map(mapContainer, mapOption);
 
-const fetching = async (path) => {
+const fetching = async (path, option = {}) => {
     try {
-        const response = await fetch(path);
+        const response = await fetch(path, option);
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
@@ -46,8 +46,8 @@ const initializeMarkers = async () => {
                 title: position['name']
             });
 
-            kakao.maps.event.addListener(marker, 'click', () => {
-                getMarketInfo(position['name'], position['latitude'], position['longitude'])
+            kakao.maps.event.addListener(marker, 'click', async () => {
+                await getMarketInfo(position['name'], position['latitude'], position['longitude']);
             });
         });
     }
@@ -94,47 +94,58 @@ document.getElementById('search_close').addEventListener('click', () => {
     document.getElementById('search_div').style.display = 'none';
 });
 
+document.getElementById('search_btn').addEventListener('click', () => {
+    document.getElementById('result').style.display = 'block';
+});
+
 document.getElementById('result_close').addEventListener('click', () => {
     document.getElementById('result').style.display = 'none';
 });
 
-const handleSubmit = event => {
+document.querySelector("form").addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const myForm = event.target;
     const formData = new FormData(myForm);
+    const contents = document.getElementById('contents');
+    contents.innerHTML = '';
 
-    document.getElementById('no_result').style.display = "none";
-
-    fetch("/search", {
+    const data = await fetching("/search", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams(formData).toString()
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('네트워크 응답이 좋지 않습니다.');
-        }
-        return response.json();
-    })
-    .then((data) => {
-        const contents = document.getElementById('contents');
+    });
 
+    if(data.length > 0) {
         data.forEach(item => {
+            const name = item.name;
+            const address = item.address;
+            const latitude = item.latitude;
+            const longitude = item.longitude;
+
             const div = document.createElement('div');
             div.className = 'pad';
+            div.addEventListener("click", async () => {
+                await getMarketInfo(name, latitude, longitude);
+                const locPosition = new kakao.maps.LatLng(latitude, longitude);
+                map.setCenter(locPosition);
+                map.setLevel(1);
+            });
 
             const h3 = document.createElement('h3');
-            h3.textContent = item.name;
+            h3.textContent = name;
             div.appendChild(h3);
 
             const p = document.createElement('p');
-            p.textContent = item.address;
+            p.textContent = address;
             div.appendChild(p);
 
             contents.appendChild(div);
-        })
-    })
-};
-
-document.querySelector("form").addEventListener("submit", handleSubmit);
+        });
+    } else {
+        const p = document.createElement('p');
+        p.textContent = "검색 결과가 없습니다.";
+        p.id = "no_result";
+        contents.appendChild(p);
+    }
+});
