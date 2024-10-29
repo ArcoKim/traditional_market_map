@@ -59,20 +59,40 @@ def market():
 @app.route('/search', methods=['POST'])
 def search():
     form = request.form
-    sql = "SELECT name, address, latitude, longitude FROM market, facility WHERE market.facility_id = facility.id"
     param = []
+    sql = "SELECT name, address, latitude, longitude"
+
+    current_lat = form.get("latitude")
+    current_lon = form.get("longitude")
+    if current_lat and current_lon:
+        sql += """, (6371 * acos(
+            cos(radians(?)) * cos(radians(latitude)) *
+            cos(radians(longitude) - radians(?)) +
+            sin(radians(?)) * sin(radians(latitude))
+        )) AS distance"""
+        param.extend([current_lat, current_lon, current_lat])
+    sql += " FROM market, facility WHERE market.facility_id = facility.id"
+
     for key in form.keys():
         value = form.getlist(key)
-        if key in ["category", "open_cycle", "items_type"]:
+        if key in ["latitude", "longitude", "etc"]:
+            continue
+        elif key == "name" and value[0]:
+            sql += f" AND name LIKE ?"
+            param.append(f"%{value[0]}%")
+        elif key in ["category", "open_cycle", "items_type"]:
             if len(value) > 1:
-                sql += f" AND {key} IN ({','.join(['?'] * len(value))})"
+                sql += f" AND ({key} IN ({','.join(['?'] * len(value))})"
             else:
-                sql += f" AND {key} = ?"
+                sql += f" AND ({key} = ?"
             param.extend(value)
         elif value[0] == "true":
             sql += f" AND {key} = 1"
         elif value[0] == "false":
             sql += f" AND {key} = 0"
+
+    if current_lat and current_lon:
+        sql += " ORDER BY distance"
     sql += " LIMIT 10"
 
     conn = get_connection()

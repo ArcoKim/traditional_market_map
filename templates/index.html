@@ -21,9 +21,17 @@
                 <h2>시장 검색</h2>
             </div>
             <form action="/search" method="post">
+                <input type="hidden" name="latitude" value="" id="current_lat">
+                <input type="hidden" name="longitude" value="" id="current_lon">
                 <div class="basic space pad">
                     <h3>기본 정보</h3>
                     <table>
+                        <tr>
+                            <td>이름</td>
+                            <td>
+                                <input type="text" name="name" id="form_name" />
+                            </td>
+                        </tr>
                         <tr>
                             <td>시장유형</td>
                             <td>
@@ -80,11 +88,6 @@
                                     <label for="seafood">수산물</label>
                                     <input type="checkbox" name="items_type" id="shoes" value="신발" />
                                     <label for="shoes">신발</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" name="items_type" id="etc" value="기타" />
-                                    <label for="etc">기타</label>
-                                    <input type="text" name="etc">
                                 </div>
                             </td>
                         </tr>

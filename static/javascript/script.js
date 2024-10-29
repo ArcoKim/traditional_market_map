@@ -79,6 +79,9 @@ if (navigator.geolocation) {
         });
 
         infowindow.open(map, marker);
+
+        document.getElementById("current_lat").value = lat;
+        document.getElementById("current_lon").value = lon;
     });
 }
 
