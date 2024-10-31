@@ -20,15 +20,15 @@ const fetching = async (path, option = {}) => {
 }
 
 const getMarketInfo = async (name, latitude, longitude) => { 
-    const market = await fetching(`/market?latitude=${latitude}&longitude=${longitude}`)
+    const market = await fetching(`/market?latitude=${latitude}&longitude=${longitude}`);
     document.getElementById('market_name').textContent = name;
     for(let [key, value] of Object.entries(market)) {
         if(value === 1) {
-            value = 'O'
+            value = 'O';
         } else if(value === 0) {
-            value = 'X'
+            value = 'X';
         } else if(!value) {
-            value = '정보 없음'
+            value = '정보 없음';
         }
         document.getElementById(key).textContent = value;
     }
@@ -119,6 +119,7 @@ document.querySelector("form").addEventListener("submit", async (event) => {
         body: new URLSearchParams(formData).toString()
     });
 
+    document.getElementById('info').style.display = 'none';
     if(data.length > 0) {
         data.forEach(item => {
             const name = item.name;

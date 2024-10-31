@@ -155,3 +155,25 @@ footer {
     font-size: 3rem;
     margin-left: 1rem;
 }
+
+@media all and (min-width:1280px) and (max-width:1899px) { 
+    #search_div, #info, #result {
+        width: 33%;
+    }
+} 
+
+@media all and (min-width:1024px) and (max-width:1279px) { 
+
+} 
+  
+@media all and (min-width:768px) and (max-width:1023px) { 
+
+} 
+
+@media all and (min-width:480px) and (max-width:767px) {
+
+} 
+
+@media all and (max-width:479px) {
+
+}
