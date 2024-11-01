@@ -62,7 +62,7 @@ if (navigator.geolocation) {
         const locPosition = new kakao.maps.LatLng(lat, lon);
 
         map.setCenter(locPosition);
-        map.setLevel(9);
+        map.setLevel(7);
 
         const imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
         const imageSize = new kakao.maps.Size(24, 35);
@@ -89,12 +89,16 @@ document.getElementById('market_close').addEventListener('click', () => {
     document.getElementById('info').style.display = 'none';
 });
 
-document.getElementById('search').addEventListener('click', () => {
-    document.getElementById('search_div').style.display = 'block';
+document.getElementById('search_show').addEventListener('click', () => {
+    document.getElementById('search').style.display = 'block';
+
+    if (matchMedia("all and (max-width: 1279px)").matches) {
+        document.getElementById('info').style.display = 'none';
+    }
 });
 
 document.getElementById('search_close').addEventListener('click', () => {
-    document.getElementById('search_div').style.display = 'none';
+    document.getElementById('search').style.display = 'none';
 });
 
 document.getElementById('search_btn').addEventListener('click', () => {

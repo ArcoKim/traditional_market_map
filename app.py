@@ -82,9 +82,9 @@ def search():
             param.append(f"%{value[0]}%")
         elif key in ["category", "open_cycle", "items_type"]:
             if len(value) > 1:
-                sql += f" AND ({key} IN ({','.join(['?'] * len(value))})"
+                sql += f" AND {key} IN ({','.join(['?'] * len(value))})"
             else:
-                sql += f" AND ({key} = ?"
+                sql += f" AND {key} = ?"
             param.extend(value)
         elif value[0] == "true":
             sql += f" AND {key} = 1"
